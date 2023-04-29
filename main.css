@@ -1,0 +1,78 @@
+.big-header{
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Libre Franklin', sans-serif;
+    padding: 0 30% 0 30%;
+    margin: 25px 0 0 0;
+}
+.small-header{
+    text-align: justify;
+    font-size: 18px;
+    font-family: "Palatino", serif;
+    padding: 0 20% 0 20%;
+}
+.italic-note{
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    font-family: "Palatino", serif;
+}
+.legend{
+    display: flex;
+    width:60%;
+    margin: auto;
+}
+.waffle {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1318px;
+  }
+.rect-empty,
+.rect-empty-but-check,
+.rect-clicked {
+    width: 32px;
+    height: 32px;
+    margin: 1px;
+    border: 1px solid white;
+    
+  }
+.rect-empty{
+    background-color: #a5a5a5;
+}
+.rect-empty-but-check{
+    background-color: #515f2a;
+  }
+.rect-clicked{
+    background-color: #b9b703;
+    word-wrap: break-word;
+    text-align: center;
+  }
+.tooltip{
+    /* opacity: 0; */
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    /* width: 240px;
+    height: 280px; */
+    max-width: 300px;
+    pointer-events: none;
+    box-shadow: 1px 1px 3px 2px #787878ee;
+}
+.tooltip-text{
+    text-align: left;
+    font-size: 14px;
+    font-family: "Palatino", serif;
+    padding: 0 5% 0 5%;
+    word-wrap: normal;
+    font-style: italic;
+}
+.tooltip-title{
+    text-align: justify;
+    font-size: 14px;
+    font-family: "Palatino", serif;
+    padding: 0 5% 0 5%;
+    word-wrap: normal;
+    font-style: normal;
+}
