@@ -30,24 +30,18 @@
     width: 1318px;
   }
 .rect-empty,
-.rect-empty-but-check,
 .rect-clicked {
     width: 32px;
     height: 32px;
     margin: 1px;
     border: 1px solid white;
-    
-  }
-.rect-empty{
     background-color: #a5a5a5;
-}
-.rect-empty-but-check{
-    background-color: #515f2a;
   }
+
 .rect-clicked{
-    background-color: #b9b703;
     word-wrap: break-word;
     text-align: center;
+    pointer-events: none;
   }
 .tooltip{
     /* opacity: 0; */
@@ -56,7 +50,7 @@
     background-color: white;
     /* width: 240px;
     height: 280px; */
-    max-width: 300px;
+    max-width: 320px;
     pointer-events: none;
     box-shadow: 1px 1px 3px 2px #787878ee;
 }
