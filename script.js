@@ -1583,11 +1583,13 @@ console.log(data.length);
 
 // function for mouseover. mouseout and click
 
-// const workType = {
-//     "Hybrid":"",
-//     "On site":"",
-//     "Remote":"",
-// };
+// switch to fill opacity maybe? or stroke color?
+const workType = {
+    "Hybrid":"black",
+    "On site":"black",
+    "Remote":"white",
+};
+
 const genderSymbols = {
     "Man":"\\",
     "Woman":"/",
@@ -1629,7 +1631,12 @@ waffle
         tooltip
         .append("p").attr("class", "tooltip-title").text("Respondent No: "+ (d.refID));
         
-        
+        if (d.Loc1Country != "") {
+            tooltip
+            .append("p").attr("class", "tooltip-title").text("Country: ");
+            tooltip
+            .append("p").attr("class", "tooltip-text").text(d.Loc1Country);
+        };
         if (d.secret_weapon != "") {
             tooltip
             .append("p").attr("class", "tooltip-title").text("Secret weapon: ");
@@ -1658,15 +1665,23 @@ waffle
         .style('margin','0')
         .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
         .style('pointer-events', 'none');
-        d3.select(this)
-        // .append("svg")
-        //     .attr("width", 32).attr("height", 32)
-        // .append("circle")
-        //     .attr("class","inside-circle")
-        //     .attr('cx', 16).attr('cy', 16).attr('r', 14)
+        var svg_circle = d3.select(this)
+        .append("svg")
+        .attr("width", 32).attr("height", 32)
+        .append("g");
+        svg_circle
+        .append("circle")
+            .attr("class","inside-circle")
+            .attr('cx', 16).attr('cy', 16).attr('r', 14)
+            .style("stroke-dasharray",d=>(d.remote_or_what == "Hybrid" ? "15%" : "0"))
+            .style("stroke",d=>(workType[d.remote_or_what]))
+            ;
+        svg_circle
         .append("text")
             .attr("class","text")
-            .style("color",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
+            .attr("dy",20)
+            .attr("dx",5)
+            .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
             .text(d=>(genderSymbols[d.gender] + (d.lang_two_or_more == 1 ? "ᴂ":"") + "✹"))
 
         ;})
