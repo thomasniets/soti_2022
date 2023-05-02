@@ -1583,11 +1583,6 @@ console.log(data.length);
 
 // function for mouseover. mouseout and click
 
-// const dvsMembership = {
-//     "No":"",
-//     "Yes":"",
-//     "":""
-// }
 // const workType = {
 //     "Hybrid":"",
 //     "On site":"",
@@ -1603,9 +1598,9 @@ const regionColours = {
     "Asia": "#e5d4ba", 
     "Europe":"#7983AF", 
     "Africa":"#CE3E3C",
-    "Oceania":"#37324F",
-    "Americas":"#49574B",
-    "":"#9AAB95",
+    "Oceania":"#37324F", //black text doesn't look good
+    "Americas": "#5a735d",// previously darker green "#49574B",
+    "":"#e3c1c1",
 };
 
 const waffle = d3.select('.waffle');
@@ -1621,7 +1616,10 @@ waffle
 	.enter()
 	.append('div')
     .attr('class', 'rect-empty')
-    // .style('background-color', d=>(regionColours[d.continent]))
+    .style('background-color', d=>(regionColours[d.continent]))
+        .style('margin','0')
+        .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
+    
     .on('mouseover', function (event, d) {
         d3.select(this).style('opacity', '0.3');
         // .text("EST")
@@ -1659,9 +1657,18 @@ waffle
         .style('background-color', d=>(regionColours[d.continent]))
         .style('margin','0')
         .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
-        // or bright greeen #559957 and change purple to #4C78AD...
-        .text(d=>(genderSymbols[d.gender] + (d.lang_two_or_more == 1 ? "ᴂ":"") + "✹"))
-        .style('pointer-events', 'none')
+        .style('pointer-events', 'none');
+        d3.select(this)
+        // .append("svg")
+        //     .attr("width", 32).attr("height", 32)
+        // .append("circle")
+        //     .attr("class","inside-circle")
+        //     .attr('cx', 16).attr('cy', 16).attr('r', 14)
+        .append("text")
+            .attr("class","text")
+            .style("color",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
+            .text(d=>(genderSymbols[d.gender] + (d.lang_two_or_more == 1 ? "ᴂ":"") + "✹"))
+
         ;})
 ;
 
