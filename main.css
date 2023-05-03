@@ -2,14 +2,14 @@
     text-align: center;
     font-size: 32px;
     font-family: 'Libre Franklin', sans-serif;
-    padding: 0 30% 0 30%;
+    padding: 0 20% 0 20%;
     margin: 25px 0 0 0;
 }
 .small-header{
     text-align: justify;
     font-size: 18px;
     font-family: "Palatino", serif;
-    padding: 0 20% 0 20%;
+    padding: 0 15% 0 15%;
 }
 .italic-note{
     text-align: center;
@@ -19,7 +19,7 @@
 }
 .legend{
     display: flex;
-    width:60%;
+    width: 70%;
     margin: auto;
 }
 .waffle {
@@ -70,10 +70,12 @@
 .text{
     font-size: 10px;
     font-family: "Palatino", serif;
+    fill: black;
 }
 .inside-circle{
-    fill:transparent;
-    stroke: black;
+    fill: #ad9f8b;
+    fill-opacity: 0;
+    /* stroke: black;
     stroke-opacity: 0.6;
-    stroke-dasharray: 0; 
+    stroke-dasharray: 0; */
 }
