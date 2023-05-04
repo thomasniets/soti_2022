@@ -1573,30 +1573,50 @@ const csvData = `refID,student,Loc1Country,continent,country_abbr,years_dataviz,
 const data_raw = d3.csvParse(csvData, function(data){
     return data;
 });
-console.log(data_raw[0]);
-console.log(data_raw.length);
 
 var data = data_raw.filter(function (d) {return (d.Loc1Country != "unfinished") });
-console.log(data[0]);
-console.log(data.length);
-//console.log(new Set(data.map(x=>x.edu_level)))
+// console.log(data[0]);
+// console.log(data.length); //should equal 1404
+//console.log(new Set(data.map(x=>x.pay_hourly)))
+data.sort((a,b) => Number(a.years_dataviz) - Number(b.years_dataviz));
+//console.log(data[1400]);
 
-//sort by years_dataviz asc
+// - - V A R I A B L E S - -
 
-// function for mouseover. mouseout and click
-
+const payHourly = {
+    // ✦ 0 – 99
+    // ✶ 100 – 199
+    // ✷ 200 – 299
+    // ✺ >300
+    "":"",
+    "I am not compensated on an hourly or project basis":"",
+    "Less than $15":"✦",
+    "$15 - $29":"✦",
+    "$30 - $44":"✦",
+    "$45 - $59":"✦",
+    "$60 - $74":"✦",
+    "$75 - $99":"✦",
+    "$100 - $124":"✶",
+    "$125 - $149":"✶",
+    "$150 - $174":"✶",
+    "$175 - $199":"✶",
+    "$200 - $224":"✷",
+    "$225 - $249":"✷",
+    "$250 - $274":"✷",
+    "$300 or more":"✺",
+};
 const workType = {
     "Hybrid":"◐",
     "On site":"◉",
     "Remote":"◯",
     "":""
 };
-const workTypePrefer = {
-    "Hybrid":"◐",
-    "On site":"◉",
-    "Remote":"◯",
-    "":""
-};
+// const workTypePrefer = {
+//     "Hybrid":"◐",
+//     "On site":"◉",
+//     "Remote":"◯",
+//     "":""
+// };
 const eduLevel = {
    "Bachelor’s degree":"..",
    "Doctoral degree":"....",
@@ -1617,13 +1637,13 @@ const regionColours = {
     "Asia": "#e5d4ba", 
     "Europe":"#7983AF", 
     "Africa":"#CE3E3C",
-    "Oceania":"#37324F", //black text doesn't look good
+    "Oceania":"#37324F",
     "Americas": "#5a735d",// previously darker green "#49574B",
     "":"#e3c1c1",
 };
 
-// add payHourly / payAnnual / looking for a job / studnet
-// maybe lang isn't something worth a whole symbol
+// - - V I Z U A L - -
+
 const waffle = d3.select('.waffle');
 
 const tooltip = d3.select("body")
@@ -1637,78 +1657,83 @@ waffle
 	.enter()
 	.append('div')
     .attr('class', 'rect-empty')
-    .style('background-color', d=>(regionColours[d.continent]))
-        .style('margin','0')
-        .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
-    
-    .on('mouseover', function (event, d) {
-        d3.select(this).style('opacity', '0.3');
-        // .text("EST")
-        tooltip.style("visibility", 'visible')
-            .style("left", (event.pageX + 20) + "px")
-            .style("top", (event.pageY - 100) + "px");
+    .on('mouseover', mouseOver)
+    .on('mouseout', mouseOut)
+    .on('click', onClick)
+    ;
+
+function mouseOver (event, d) {
+    d3.select(this).style('opacity', '0.3');
+    tooltip.style("visibility", 'visible')
+        .style("left", (event.pageX + 20) + "px")
+        .style("top", (event.pageY - 100) + "px");
+    tooltip
+    .append("p").attr("class", "tooltip-title").text("Respondent No: "+ (d.refID));
+    if (d.Loc1Country != "") {
         tooltip
-        .append("p").attr("class", "tooltip-title").text("Respondent No: "+ (d.refID));
-        if (d.Loc1Country != "") {
-            tooltip
-            .append("p").attr("class", "tooltip-title").text("Country: "+ (d.Loc1Country));
-        };
-        if (d.secret_weapon != "") {
-            tooltip
-            .append("p").attr("class", "tooltip-title").text("Secret weapon: ");
-            tooltip
-            .append("p").attr("class", "tooltip-text").text(d.secret_weapon);
-        };
-        if (d.inspired_by != "") {
-            tooltip
-            .append("p").attr("class", "tooltip-title").text("Inspired by:")
-            tooltip
-            .append("p").attr("class", "tooltip-text").text(d.inspired_by)
-            ;
-        };
-        
-    })
+        .append("p").attr("class", "tooltip-title").text("Country: "+ (d.Loc1Country));
+    };
+    if (d.secret_weapon != "") {
+        tooltip
+        .append("p").attr("class", "tooltip-title").text("Secret weapon: ");
+        tooltip
+        .append("p").attr("class", "tooltip-text").text(d.secret_weapon);
+    };
+    if (d.inspired_by != "") {
+        tooltip
+        .append("p").attr("class", "tooltip-title").text("Inspired by:")
+        tooltip
+        .append("p").attr("class", "tooltip-text").text(d.inspired_by)
+        ;
+    }
+    ;}
 
-    .on('mouseout', function (event, d) {
-        d3.select(this).style('opacity', '1');
-        tooltip.style("visibility", 'hidden').selectAll("p").remove()
-        ;})
+function mouseOut (event, d) {
+    d3.select(this).style('opacity', '1');
+    tooltip.style("visibility", 'hidden').selectAll("p").remove()
+    ;}
 
-    .on('click', function (event, d) {
-        d3.select(this)
-        .attr('class', 'rect-clicked')
-        .style('background-color', d=>(regionColours[d.continent]))
-        .style('margin','0')
-        .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
-        .style('pointer-events', 'none');
-        var svg_circle = d3.select(this)
-        .append("svg")
-        .attr("width", 32).attr("height", 32)
-        .append("g");
-        svg_circle
-        .append("circle")
-            .attr("class","inside-circle")
-            .attr('cx', 16).attr('cy', 16).attr('r', 12)
-            //.style("stroke-dasharray",d=>(d.remote_or_what == "Hybrid" ? "15%" : "0"))
-            //.style("stroke",d=>(workType[d.remote_or_what]))
-            .style("fill-opacity", d=>(d.lang_two_or_more == 1 ? "0.3":"0"))
-            ;
-        svg_circle
-        .append("text")
-            .attr("class","text")
-            .attr("dy",20)
-            .attr("dx",5)
-            .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
-            .text(d=>(genderSymbols[d.gender] + "✹" + workType[d.remote_or_what]))
-            ;
-        svg_circle
-        .append("text")
-            .attr("class","text")
-            .attr("dy",30)
-            .attr("dx",5)
-            .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
-            .text("...")
-
-        ;})
-;
-
+function onClick (event, d) {
+    d3.select(this)
+    .attr('class', 'rect-clicked')
+    .style('background-color', d=>(regionColours[d.continent]))
+    .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
+    
+    var svg_circle = d3.select(this)
+    .append("svg")
+    .attr("width", 32).attr("height", 32)
+    .append("g");
+    svg_circle
+    .append("circle")
+        .attr("class","inside-circle")
+        .attr('cx', 16).attr('cy', 16).attr('r', 13)
+        //.style("stroke-dasharray",d=>(d.remote_or_what == "Hybrid" ? "15%" : "0"))
+        //.style("stroke",d=>(workType[d.remote_or_what]))
+        .style("fill-opacity", d=>(d.looking_for_job == "Yes" ? "0.3":"0"))
+        ;
+    svg_circle
+    .append("text")
+        .attr("class","text")
+        .attr("dy",10)
+        .attr("dx",3)
+        .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
+        .text(d=>(d.lang_two_or_more == 1 ? "ª" : ""))
+        ;
+    svg_circle
+    .append("text")
+        .attr("class","text")
+        .attr("dy",20)
+        .attr("dx",5)
+        .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
+        .text(d=>(genderSymbols[d.gender] + payHourly[d.pay_hourly] + workType[d.remote_or_what]))
+        ;
+    svg_circle
+    .append("text")
+        .attr("class","text")
+        .attr("dy",30)
+        .attr("dx",3)
+        .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
+        .text(d=>(d.student == 1 ? eduLevel[d.edu_level] + "    ➝" : eduLevel[d.edu_level]))
+        //→
+        ;
+    ;}

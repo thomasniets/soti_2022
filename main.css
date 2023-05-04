@@ -33,15 +33,15 @@
 .rect-clicked {
     width: 32px;
     height: 32px;
-    margin: 1px;
-    border: 1px solid white;
+    margin: 0;
+    border: 2px solid white;
     background-color: #a5a5a5;
   }
 
 .rect-clicked{
     word-wrap: break-word;
     text-align: center;
-    pointer-events: none;
+    /* pointer-events: none; */
   }
 .tooltip{
     position: absolute;
@@ -73,7 +73,8 @@
     fill: black;
 }
 .inside-circle{
-    fill: #ad9f8b;
+    fill: #75cbec;
+     /* #ad9f8b; */
     fill-opacity: 0;
     /* stroke: black;
     stroke-opacity: 0.6;
