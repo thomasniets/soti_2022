@@ -1694,11 +1694,45 @@ function mouseOut (event, d) {
     ;}
 
 function onClick (event, d) {
-    d3.select(this)
-    .attr('class', 'rect-clicked')
-    .style('background-color', d=>(regionColours[d.continent]))
-    .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
+    // let the user choose?
+    var studentVal = d.student;
+    var continentVal = d.continent;
+    var payHVal = d.pay_hourly;
+    var remoteVal = d.remote_or_what;
+    var jobSeekerVal = d.looking_for_job;
+    var eduVal = d.edu_level;
+    var langVal = d.lang_two_or_more;
+    var genderVal = d.gender;
+    var dvsVal = d.dvs_member;
+    var count = 0;
+//    years_dataviz,years_work,pay_annual,remote_preference
+
+ //   what if the val is ""?
+    waffle.selectAll(".rect-empty")
+        .filter((d) =>  d.student === studentVal 
+        //&& d.continent === continentVal
+        && d.pay_hourly === payHVal
+        && d.remote_or_what === remoteVal
+        && d.looking_for_job === jobSeekerVal
+        && d.edu_level === eduVal
+        && d.lang_two_or_more === langVal
+        && d.gender === genderVal
+        //&& d.dvs_member === dvsVal
+        )
+        .attr('class', 'rect-clicked')
+        .style('background-color', d=>(regionColours[d.continent]))
+        .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
+        .each(onClickCircle)
+        .each(function(){return count++})
+        ;
+    console.log(count); 
+    // maybe display on screen smth like "10 similar people found based on selected criteria"
     
+;}
+    
+   
+
+function onClickCircle(event,d){
     var svg_circle = d3.select(this)
     .append("svg")
     .attr("width", 32).attr("height", 32)
@@ -1707,8 +1741,6 @@ function onClick (event, d) {
     .append("circle")
         .attr("class","inside-circle")
         .attr('cx', 16).attr('cy', 16).attr('r', 13)
-        //.style("stroke-dasharray",d=>(d.remote_or_what == "Hybrid" ? "15%" : "0"))
-        //.style("stroke",d=>(workType[d.remote_or_what]))
         .style("fill-opacity", d=>(d.looking_for_job == "Yes" ? "0.3":"0"))
         ;
     svg_circle
@@ -1734,6 +1766,9 @@ function onClick (event, d) {
         .attr("dx",3)
         .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
         .text(d=>(d.student == 1 ? eduLevel[d.edu_level] + "    ➝" : eduLevel[d.edu_level]))
-        //→
         ;
     ;}
+
+   
+    
+    
