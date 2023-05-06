@@ -13,40 +13,152 @@
 
     <body>
     <header>
-        <p class="big-header">State Of The Industry: Survey Results 2022</p>
-        <p class="italic-note">Please, use a desktop to view</p>  
-        <p class="small-header">
-            There are 1404 squares on the screen — each one represents a SOTI response.
-            Hover over a square to learn more about the respondent.
-            Click on it to flip it along with the similar squares.
-        </p>
+        <p class="big-header">State Of The Industry Survey Results 2022</p>
+        <p class="italic-note">Please, use desktop to view</p>  
+        <!-- <p class="small-header">
+        </p> -->
     </header>
     
     <div class="legend">
         <div>
-            <p class="small-header">
-                The tooltip appears when you hover over a square.
-            </p>
-        <div class="tooltip" style="visibility: visible; position:inherit; width: 200px;">
-            <p class="tooltip-title">Respondent No 0000</p> 
-            <p class="tooltip-title">Country [Q08]</p> 
-            <p class="tooltip-title">Secret weapon [Other from Q36 about tools]</p> 
-            <p class="tooltip-title">Inspired by [Q55]</p> 
-        </div>
+            <!-- <p class="legend-text">
+                
+            </p> -->
+            <div class="legend-inner-grid">
+                <p class="legend-text">
+                    There are 1404* squares on the screen — each one represents a 
+                <a href="https://www.datavisualizationsociety.org/survey">Data Visualization Society SOTI</a> response.
+                    Hover over a square to learn more about the respondent in the tooltip.
+                </p>
+                <div class="tooltip" style="visibility: visible; position:inherit; width: 160px; padding:1% 0 1% 0;">
+                    <p class="tooltip-example">Respondent No <i>0000</i></p> 
+                    <p class="tooltip-example">Country: <i>[Q08]</i></p> 
+                    <p class="tooltip-example">Secret weapon: <i>["Other" from Q36 about tools]</i></p> 
+                    <p class="tooltip-example">Inspired by: <i>[Q55]</i></p> 
+                </div>
+            </div>
+            
+            <div class="legend-inner-grid">
+                <p class="legend-text">
+                    The squares are sorted based on years of experience in data visualization [Q03].
+                </p>
+                <img src="vector2.svg" width="100px"/>
+            </div>
+            
+            
         </div>
         <div>
-            <p class="small-header">
-                Symbols and colours appear when you click on a square.
-                Countries are grouped by continent (https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes)
+            <p class="legend-text">Click on any square to <b>flip it along with the similar ones </b>
+            based on criteria of your choice. Just untick the boxes for variables you don't want to take into account.</p>
+            
+            <p class="legend-text">
+                Square colour represents the 
+                <input type="checkbox" id="" name="continent" checked>
+                <label for="vehicle1">continent:</label><br>   
             </p>
+            <div class="legend-inner-grid">
+                <div>
+                    <div class="legend-square" style="background-color:#5a735d;"></div> Americas (60%)
+                    <div class="legend-square" style="background-color:#7983AF;"></div> Europe (27.5%)
+                    <div class="legend-square" style="background-color:#e5d4ba;"></div> Asia (6%)
+                </div>
+                <div>
+                    <div class="legend-square" style="background-color:#37324F;"></div> Oceania (3%)
+                    <div class="legend-square" style="background-color:#CE3E3C;"></div> Africa (2%)
+                    <div class="legend-square" style="background-color:#e3c1c1;"></div> Unknown (1.5%)
+                </div>
+            </div>
+            
+            <div class="legend-inner-grid" style="grid-auto-columns: auto;">
+                <div>
+                    <div class="legend-square" style="width: 24px; height: 24px; background: #75cbec;  border-radius: 50%; opacity:0.3;">
+                    </div>
+                    <div class="legend-square" style="background-color:white; border:2px solid #75cbec;">
+                    </div>
+                </div>
+
+                <p class="legend-text">
+                    A circle means the person is
+                    <input type="checkbox" id="" name="jobseeker" checked>
+                    <label for="vehicle1">looking for a job [Q44].</label><br>
+                    A blue border is for
+                    <input type="checkbox" id="" name="dvs" checked>
+                    <label for="vehicle1">DVS members [Q64].</label><br>
+                </p>
+            </div>
         </div>
         <div>
-            <p class="small-header">
-                The squares are sorted based on years of experince in data visualization.
+            
+            <p class="legend-text">
+                ª if they
+                <input type="checkbox" id="" name="lang" checked>
+                <label for="vehicle1">speak 2 or more languages [Q57]</label><br>
+                _________________________________
             </p>
-            <img src="vector2.svg" width="100px"/>
+            
+            <p class="legend-text">
+                \ - Man
+                / - Woman
+                | - Self-described or Prefer not to say
+
+                <input type="checkbox" id="" name="gender" checked>
+                <label for="vehicle1">for gender [Q59]</label><br>
+                _________________________________
+            </p>
+            
+            <p class="legend-text">
+                Out of those working on site, the majority (44%) would prefer to switch to hybrid [Q11,Q12].
+                The rest are happy with
+                <input type="checkbox" id="" name="worktype" checked>
+                <label for="vehicle1">their work situation right now.</label>
+            </p>
+            <p class="legend-text">
+                ◯ Remote
+                ◐ Hybrid
+                ◉ On site
+                <br>
+                _________________________________
+            </p>
+            
+            <p class="legend-text">
+                <input type="checkbox" id="" name="pay" checked>
+                <label for="vehicle1">Hourly pay</label>
+                for project work [Q07]:
+            </p>
+            <p class="legend-text">
+                ✦ < 100$
+            </p>
+            <p class="legend-text">
+                ✶ 100 - 200$
+            </p>
+            <p class="legend-text">
+                ✷ 200 - 300$
+            </p>
+            <p class="legend-text">
+                ✺ ≥ 300$ 
+                <br>
+                _________________________________
+            </p>
+
+            <p class="legend-text">
+                Finally, 
+                <input type="checkbox" id="" name="education" checked>
+                <label for="vehicle1">education level [Q58]:</label><br>
+                High school diploma . - .... Doctoral degree
+            </p>
+            
+            <p class="legend-text">
+                ➝ if they are a
+                <input type="checkbox" id="" name="student" checked>
+                <label for="vehicle1">student [Q01]</label>
+            </p>
         </div>
     </div>
+    
+    <div>
+        <input type="submit" value="Apply criteria">
+    </div>
+    
 
     <div>
         <figure class="waffle"></figure>
@@ -59,12 +171,31 @@
     
     </body>
     <footer>
-        <p class="italic-note">
-            Number of reponses is lower because the results were filtered based on Loc1Country field.
-            Rows with [\\unfinished] in this column were removed.
-            Maybe add full question text + some explanatory facts. 
-            Link to DVS data source. https://docs.google.com/spreadsheets/d/1WIcrNMswG6aGBlhoYqWhav9sUGefYA7BBEIL20hleWE/edit#gid=1466763888
-            github link, 2023
+        <p class="footer-text">
+            <a href="https://docs.google.com/spreadsheets/d/1WIcrNMswG6aGBlhoYqWhav9sUGefYA7BBEIL20hleWE/edit#gid=1466763888">Data source</a>
+        </p>
+        <p class="footer-text">
+            *The number of responses was reduced by filtering out respondents who did not finish answering the question about their country [Q08].
+            Countries were <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">grouped</a> by continent.
+    
+            <!-- 
+                Q01	Which of the following describes your role as a data visualizer in the past year? (Student in a degree program at a college or university)
+                Q03	About how many years of experience do you have doing data visualization?
+                Q04	About how many years of professional experience do you have (in any field)?
+                Q06	If you get paid a salary, what is your pre-tax yearly pay (in US dollars)?
+                Q07	If you are paid by hour or by project, what is your hourly rate for data visualization (in US dollars)?
+                Q08	What country do you live in?
+                Q11	Which best describes your work situation as a data visualizer during the past 6 months?
+                Q12	If given a choice, which work situation would you prefer for the next 6 to 12 months?
+                Q36	What technologies do you use to visualize data? (Other)
+                Q44	Are you currently looking for new employment opportunities?
+                Q55	Who do you find helpful for inspiration in data visualization? Feel free to list multiple names.
+                Q57	What language(s) do you speak regularly?
+                Q58	What is the highest level of education you have completed?
+                Q59	What is your gender?
+                Q64	Are you a Data Visualization Society member?
+             -->
+            <!-- Made by Vasiukova Viktoriia. -->
         </p>
     </footer>
 

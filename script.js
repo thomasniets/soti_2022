@@ -1662,6 +1662,8 @@ waffle
     .on('click', onClick)
     ;
 
+// - - F U N C T I O N S - -
+
 function mouseOver (event, d) {
     d3.select(this).style('opacity', '0.3');
     tooltip.style("visibility", 'visible')
@@ -1710,14 +1712,14 @@ function onClick (event, d) {
  //   what if the val is ""?
     waffle.selectAll(".rect-empty")
         .filter((d) =>  d.student === studentVal 
-        //&& d.continent === continentVal
-        && d.pay_hourly === payHVal
-        && d.remote_or_what === remoteVal
-        && d.looking_for_job === jobSeekerVal
-        && d.edu_level === eduVal
-        && d.lang_two_or_more === langVal
+        && d.continent === continentVal
+        // && d.pay_hourly === payHVal
+        // && d.remote_or_what === remoteVal
+        // && d.looking_for_job === jobSeekerVal
+        // && d.edu_level === eduVal
+        // && d.lang_two_or_more === langVal
         && d.gender === genderVal
-        //&& d.dvs_member === dvsVal
+        && d.dvs_member === dvsVal
         )
         .attr('class', 'rect-clicked')
         .style('background-color', d=>(regionColours[d.continent]))
@@ -1729,8 +1731,6 @@ function onClick (event, d) {
     // maybe display on screen smth like "10 similar people found based on selected criteria"
     
 ;}
-    
-   
 
 function onClickCircle(event,d){
     var svg_circle = d3.select(this)
