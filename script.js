@@ -1575,7 +1575,7 @@ const data_raw = d3.csvParse(csvData, function(data){
 });
 
 var data = data_raw.filter(function (d) {return (d.Loc1Country != "unfinished") });
-// console.log(data[0]);
+var left = data.length;
 // console.log(data.length); //should equal 1404
 //console.log(new Set(data.map(x=>x.pay_hourly)))
 data.sort((a,b) => Number(a.years_dataviz) - Number(b.years_dataviz));
@@ -1670,23 +1670,21 @@ function mouseOver (event, d) {
         .style("left", (event.pageX + 20) + "px")
         .style("top", (event.pageY - 100) + "px");
     tooltip
-    .append("p").attr("class", "tooltip-title").text("Respondent No: "+ (d.refID));
+    .append("p").attr("class", "tooltip-title").style("font-weight","400").text("Respondent No: "+ (d.refID));
     if (d.Loc1Country != "") {
         tooltip
-        .append("p").attr("class", "tooltip-title").text("Country: "+ (d.Loc1Country));
+        .append("p").attr("class", "tooltip-title").text("Country: ")
+        .append("span").style("font-style","italic").text(d.Loc1Country);
     };
     if (d.secret_weapon != "") {
         tooltip
-        .append("p").attr("class", "tooltip-title").text("Secret weapon: ");
-        tooltip
-        .append("p").attr("class", "tooltip-text").text(d.secret_weapon);
+        .append("p").attr("class", "tooltip-title").text("Secret weapon: ")
+        .append("span").style("font-style","italic").text(d.secret_weapon);
     };
     if (d.inspired_by != "") {
         tooltip
-        .append("p").attr("class", "tooltip-title").text("Inspired by:")
-        tooltip
-        .append("p").attr("class", "tooltip-text").text(d.inspired_by)
-        ;
+        .append("p").attr("class", "tooltip-title").text("Inspired by: ")
+        .append("span").style("font-style","italic").text(d.inspired_by);
     }
     ;}
 
@@ -1695,40 +1693,53 @@ function mouseOut (event, d) {
     tooltip.style("visibility", 'hidden').selectAll("p").remove()
     ;}
 
-function onClick (event, d) {
-    // let the user choose?
-    var studentVal = d.student;
-    var continentVal = d.continent;
-    var payHVal = d.pay_hourly;
-    var remoteVal = d.remote_or_what;
-    var jobSeekerVal = d.looking_for_job;
-    var eduVal = d.edu_level;
-    var langVal = d.lang_two_or_more;
-    var genderVal = d.gender;
-    var dvsVal = d.dvs_member;
-    var count = 0;
-//    years_dataviz,years_work,pay_annual,remote_preference
 
- //   what if the val is ""?
+function onClick (event, d) {
+
+    // переместить в on click на кнопке Apply criteria?
+    const collection = document.getElementsByName("variables");
+    var variablesDict = {};
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i].checked) {
+            variablesDict[collection[i].id] = d[collection[i].id];
+        }
+    };
+    
+    var count = 0;
     waffle.selectAll(".rect-empty")
-        .filter((d) =>  d.student === studentVal 
-        && d.continent === continentVal
-        // && d.pay_hourly === payHVal
-        // && d.remote_or_what === remoteVal
-        // && d.looking_for_job === jobSeekerVal
-        // && d.edu_level === eduVal
-        // && d.lang_two_or_more === langVal
-        && d.gender === genderVal
-        && d.dvs_member === dvsVal
-        )
+        .filter(function(d) {
+            for (let param in variablesDict) {
+                if (d[param] !== variablesDict[param])
+                    return false;
+            }
+            count += 1;
+            left -= 1;
+            return true;
+            
+            // var counter = 0;
+            // for (const [key, value] of Object.entries(variablesDict)) {
+            //     if (d[key] === value){
+            //         console.log(d[key]);
+            //         counter += 1;
+            //     }
+            // }
+            // console.log(Object.keys(variablesDict).length);
+            // console.log(counter);
+            // if (counter == Object.keys(variablesDict).length) {
+            //     return true;
+            // }
+            // else return false;
+            
+        })
         .attr('class', 'rect-clicked')
         .style('background-color', d=>(regionColours[d.continent]))
         .style('border',d=>(d.dvs_member == "Yes" ? "2px solid #75cbec" : "2px solid white"))
         .each(onClickCircle)
-        .each(function(){return count++})
+        //.each(function(){return count++})
         ;
-    console.log(count); 
-    // maybe display on screen smth like "10 similar people found based on selected criteria"
+    
+    d3.select("#new-revealed").text(count);
+    d3.select("#total-flipped").text(String(100-Math.round(left/14.04)) + "%");
     
 ;}
 

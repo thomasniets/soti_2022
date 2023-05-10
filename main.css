@@ -1,42 +1,64 @@
-
 .big-header{
     text-align: center;
-    font-size: 32px;
-    font-family: 'Libre Franklin', sans-serif;
-    padding: 0 20% 0 20%;
-    margin: 25px 0 0 0;
+    font-size: 36px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin: 25px 20% 0 20%;
 }
 .small-header{
     text-align: justify;
     font-size: 18px;
-    font-family: "Palatino", serif;
+    font-family: "Raleway", sans-serif;
     padding: 0 15% 0 15%;
 }
 .italic-note{
     text-align: center;
     font-style: italic;
-    font-size: 16px;
-    font-family: "Palatino", serif;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    margin-top: 8px;
+}
+.legend-big-column{
+    margin: 0 5% 0 0;
 }
 .legend{
-    /* display: flex; */
     width: 90%;
     margin: auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    /* grid-auto-columns: 1fr; */
+    grid-auto-columns: 320px 1fr 1fr;
 }
 .legend-inner-grid{
-    margin: 8px 0 0 0;
+    margin: auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-auto-columns:30px max-content;
+    padding: 10px 0 0 0;
+}
+.legend-inner-grid-big{
+    margin: auto;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns:max-content;
+    padding: 10px 0 0 0;
 }
 .legend-text{
     text-align: justify;
     font-size: 16px;
-    font-family: "Palatino", serif;
-    padding: 0 10% 0 0;
+    font-weight: 300;
+    font-family: "Raleway", sans-serif;
+    margin: 12px 20px 0 0;
+    /* padding: 0 10% 0 0; */
+    word-wrap: normal;
+}
+.legend-text-inner-grid{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Raleway", sans-serif;
+    margin: auto;
+    padding: 0 20px 0 0;
     word-wrap: normal;
 }
 .legend-square{
@@ -49,7 +71,7 @@
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
-    width: 1318px;
+    width: 1300px;
   }
 .rect-empty,
 .rect-clicked {
@@ -57,7 +79,7 @@
     height: 32px;
     margin: 0;
     border: 2px solid white;
-    background-color: #a5a5a5;
+    background-color: #cdcdcd;
   }
 
 .rect-clicked{
@@ -65,20 +87,36 @@
     text-align: center;
     pointer-events: none;
   }
+.counter{
+    position: sticky;
+    bottom: 0;
+    margin: auto;
+    background-color: white;
+    opacity: 95%;
+    width: 1300px;
+    pointer-events: none;
+}
+.counter-text{
+    text-align: center;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    padding: 8px 0 8px 0;
+}
 .tooltip{
     position: absolute;
     visibility: hidden;
     background-color: white;
-    max-width: 320px;
+    max-width: 380px;
     pointer-events: none;
-    box-shadow: 1px 1px 3px 2px #787878ee;
+    box-shadow: 1px 1px 3px 2px #a5a5a5;
 }
 .tooltip-title,
 .tooltip-text,
 .tooltip-example{
     text-align: left;
     font-size: 14px;
-    font-family: "Palatino", serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
     padding: 0 5% 0 5%;
     word-wrap: normal;
     margin: 8px;
@@ -91,28 +129,43 @@
 }
 .text{
     font-size: 10px;
-    font-family: "Palatino", serif;
+    font-family: "Raleway", sans-serif;
     fill: black;
 }
 .inside-circle{
     fill: #75cbec;
-     /* #ad9f8b; */
     fill-opacity: 0;
-    /* stroke: black;
-    stroke-opacity: 0.6;
-    stroke-dasharray: 0; */
 }
 .footer-text{
     text-align: left;
-    font-size: 16px;
-    font-family: "Palatino", serif;
-    color: grey;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    color: black;
     word-wrap: normal;
     padding: 2px 10% 2px 10%;
     margin: 0px;
 }
-input[type=submit] {
+label{
+    font-style: italic;
+    background-color: #e5e4e4;
+    color: black;
+    
+}
+.qnumber{
+    font-style: italic;
+    background-color: #e5e4e4;
+    color: black;
+    /* border-radius: 8%; */
+}
+.qnumber:before{
+    content:"\00a0";
+}
+.qnumber:after{
+    content:"\00a0";
+}
+
+/* input[type=submit] {
     width: 150px; 
     height: 20px;
     font-size: 16px;
-}
+} */
