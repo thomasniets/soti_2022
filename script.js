@@ -1618,13 +1618,13 @@ const workType = {
 //     "":""
 // };
 const eduLevel = {
-   "Bachelor’s degree":"..",
-   "Doctoral degree":"....",
-   "Master’s degree":"...",
-   "Technical school":".",
-   "Some college":".",
-   "Associate’s degree":"..",
-   "High school diploma":".",
+   "Bachelor’s degree":"࠾࠾",
+   "Doctoral degree":"࠾࠾࠾࠾",
+   "Master’s degree":"࠾࠾࠾",
+   "Technical school":"࠾",
+   "Some college":"࠾࠾",
+   "Associate’s degree":"࠾࠾",
+   "High school diploma":"࠾",
    "":""
 };
 const genderSymbols = {
@@ -1776,7 +1776,7 @@ function onClickCircle(event,d){
         .attr("dy",30)
         .attr("dx",3)
         .style("fill",d=>(d.continent == "Oceania" || d.continent == "Americas" ? "#d9d9d9" : "black"))
-        .text(d=>(d.student == 1 ? eduLevel[d.edu_level] + "    ➝" : eduLevel[d.edu_level]))
+        .text(d=>(d.student == 1 ? eduLevel[d.edu_level] + "➝" : eduLevel[d.edu_level]))
         ;
     ;}
 

@@ -22,8 +22,7 @@
     
     <div class="legend">
         <div class="legend-big-column" style="border-right: 1px solid #a5a5a5">
-            <div>
-            <!-- <div class="legend-inner-grid"> -->
+        <div class="legend-inner-grid-big">
                 <p class="legend-text">
                     There are 1404* squares on the screen — each one represents a 
                 <a href="https://www.datavisualizationsociety.org/survey">Data Visualization Society SOTI</a> response.
@@ -36,31 +35,24 @@
                     <p class="tooltip-example">Secret weapon: <i>"Other" from <span class="qnumber">Q36</span> about tools</i></p> 
                     <p class="tooltip-example">Inspired by: <span class="qnumber">Q55</span></p> 
                 </div>
-                
-            </div>
-            
-            <div>
-            <!-- <div class="legend-inner-grid"> -->
-                <p class="legend-text" style="padding: 20px 20px 0 0;">
-                    The squares are sorted based on years of experience in data visualization <span class="qnumber">Q03</span>.
-                </p>
-                <img src="sort.png" width="180px"/>
-            </div>
-            
-            
         </div>
-        <div class="legend-big-column">
-            <p class="legend-text">Click on any square to flip it along with the similar ones 
-            based on criteria of your choice. Just untick the boxes for variables you don't want to take into account.</p>
-            
+                
+        <div class="legend-inner-grid-big">
             <p class="legend-text">
-                Square colour represents the 
-                <input type="checkbox" name="variables" id="continent" checked>
-                <label>continent:</label><br>   
+                The squares are sorted based on years of experience in data visualization <span class="qnumber">Q03</span>.
+                Click on any square to flip it along with the similar ones based on criteria of your choice.
+                Just tick the checkboxes you want to take into account.
             </p>
+            <img src="sort.png" width="180px"/> 
+        </div>
+        </div>
 
-            <div class="legend-inner-grid-big" style="padding: 0 0 10px 0;">
-                <div>
+        <div class="legend-big-column">
+                    <p class="legend-text">
+                        Square colour represents the <br>
+                        <input type="checkbox" name="variables" id="continent" checked>
+                        <label>continent:</label><br>   
+                    </p>
                     <div class="legend-inner-grid">
                         <div class="legend-square" style="background-color:#5a735d;"></div> 
                         <p class="legend-text-inner-grid">Americas (60%)</p>                
@@ -73,8 +65,6 @@
                         <div class="legend-square" style="background-color:#e5d4ba;"></div> 
                         <p class="legend-text-inner-grid">Asia (6%)</p>
                     </div>
-                </div>
-                <div>
                     <div class="legend-inner-grid">
                         <div class="legend-square" style="background-color:#37324F;"></div>
                         <p class="legend-text-inner-grid">Oceania (3%)</p>
@@ -87,83 +77,35 @@
                         <div class="legend-square" style="background-color:#e3c1c1;"></div>
                         <p class="legend-text-inner-grid">Unknown (1.5%)</p>
                     </div>
-                </div>
-            </div>
-            
-            
-            <div class="legend-inner-grid">
-                <div class="legend-square" style="width: 22px; height: 22px; background: #75cbec;  border-radius: 50%; opacity:0.3;">
-                </div>
-                <p class="legend-text-inner-grid" style="font-size: 16px;">
-                    A circle means the person is
-                    <input type="checkbox" name="variables" id="looking_for_job" >
-                    <label >looking for a job <span class="qnumber">Q44</span>.</label><br>
-                </p>
-            </div>
-            <div class="legend-inner-grid" style="padding: 10px 0 10px 0;">
-                <div class="legend-square" style="width: 18px; height: 18px; background-color:white; border:2px solid #75cbec;">
-                </div>
-                <p class="legend-text-inner-grid" style="font-size: 16px;">
-                    A blue border is for
-                    <input type="checkbox" name="variables" id="dvs_member" >
-                    <label >DVS members <span class="qnumber">Q64</span>.</label><br>
-                </p>
-            </div>
-            <p class="legend-text" style="font-weight: 500;">
-                Symbols:
-            </p>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">
-                    ª
-                </p>
-                <p class="legend-text-inner-grid" style="font-size: 16px;">
-                    if they
-                    <input type="checkbox" name="variables" id="lang_two_or_more" >
-                    <label >speak 2 or more languages <span class="qnumber">Q57</span></label><br>
-                </p>
-            </div>
-            <p class="legend-text">
-                In terms of
-                <input type="checkbox" name="variables" id="gender" >
-                <label>gender <span class="qnumber">Q59</span></label>:
-            </p>
-    
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">\</p>
-                <p class="legend-text-inner-grid">man</p>
-            </div>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">/</p>
-                <p class="legend-text-inner-grid">woman</p>
-            </div>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">|</p>
-                <p class="legend-text-inner-grid">self-described or prefer not to say</p>
-            </div>
-            
+                    <div class="legend-inner-grid">
+                        <div class="legend-square" style="width: 22px; height: 22px; background: #75cbec;  border-radius: 50%; opacity:0.3;">
+                        </div>
+                        <p class="legend-text-inner-grid">
+                            <!-- if they are -->
+                            <input type="checkbox" name="variables" id="looking_for_job" >
+                            <label >looking for a job <span class="qnumber">Q44</span></label>
+                        </p>
+                    </div>
+                    <div class="legend-inner-grid">
+                        <div class="legend-square" style="width: 18px; height: 18px; background-color:white; border:2px solid #75cbec;">
+                        </div>
+                        <p class="legend-text-inner-grid">
+                            <!-- if they are a -->
+                            <input type="checkbox" name="variables" id="dvs_member" checked>
+                            <label >DVS member <span class="qnumber">Q64</span></label>
+                        </p>
+                    </div>
         </div>
-
         <div class="legend-big-column">
-            
             <p class="legend-text">
-                Out of those working on site, the majority (44%) would prefer to switch to hybrid <span class="qnumber">Q11,Q12</span>.
-                The rest are happy with their 
+                Out of those working on site, the majority (44%) would prefer to switch to hybrid <span class="qnumber">Q11, Q12</span>.
+                The rest are happy with their
                 <input type="checkbox" name="variables" id="remote_or_what" >
-                <label>work situation right now:</label>
+                <label>work situation right now</label>:
             </p>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">◯</p>
-                <p class="legend-text-inner-grid">Remote</p>
-            </div>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">◐</p>
-                <p class="legend-text-inner-grid">Hybrid</p>
-            </div>
-            <div class="legend-inner-grid">
-                <p class="legend-text-inner-grid">◉</p>
-                <p class="legend-text-inner-grid">On site</p>
-            </div>
-            
+            <p class="legend-text" style="font-size: 14px;">◯ Remote ◐ Hybrid ◉ On site</p>
+        
+        
             <p class="legend-text">
                 <input type="checkbox" name="variables" id="pay_hourly" >
                 <label >Hourly pay</label>
@@ -185,46 +127,92 @@
                 <p class="legend-text-inner-grid">✺</p>
                 <p class="legend-text-inner-grid">≥ 300$</p>
             </div>
-
-            <!-- <p class="legend-text">
-                ✦ < 100$
-            </p>
+        </div>    
+    <div class="legend-big-column">
             <p class="legend-text">
-                ✶ 100 - 200$
-            </p>
-            <p class="legend-text">
-                ✷ 200 - 300$
-            </p>
-            <p class="legend-text">
-                ✺ ≥ 300$ 
-            </p> -->
-
-            <p class="legend-text">
-                Finally, 
                 <input type="checkbox" name="variables" id="edu_level" >
-                <label >education level <span class="qnumber">Q58</span>:</label><br>
-                High school diploma . - .... Doctoral degree
+                <label> Education level <span class="qnumber">Q58</span>, </label>
+                <input type="checkbox" name="variables" id="student" >
+                <label>student status <span class="qnumber">Q01</span></label>:
             </p>
             
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">࠾</p>
+                <p class="legend-text-inner-grid">High school diploma, Technical school</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">࠾࠾</p>
+                <p class="legend-text-inner-grid">Bachelor’s degree, Associate’s degree, Some college</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">࠾࠾࠾</p>
+                <p class="legend-text-inner-grid">Master’s degree</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">࠾࠾࠾࠾</p>
+                <p class="legend-text-inner-grid">Doctoral degree</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">➝</p>
+                <p class="legend-text-inner-grid">if they are currently a student</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">
+                    ª
+                </p>
+                <p class="legend-text-inner-grid">
+                    if they
+                    <input type="checkbox" name="variables" id="lang_two_or_more" >
+                    <label >speak 2 or more languages <span class="qnumber">Q57</span></label><br>
+                </p>
+            </div>
             <p class="legend-text">
-                ➝ if they are currently
-                <input type="checkbox" name="variables" id="student" >
-                <label>a student <span class="qnumber">Q01</span></label>
+                <input type="checkbox" name="variables" id="gender" >
+                <label>Gender <span class="qnumber">Q59</span></label>:
             </p>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">\</p>
+                <p class="legend-text-inner-grid"> man</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">/</p>
+                <p class="legend-text-inner-grid"> woman</p>
+            </div>
+            <div class="legend-inner-grid">
+                <p class="legend-text-inner-grid">|</p>
+                <p class="legend-text-inner-grid"> self-described</p>
+            </div>
         </div>
     </div>
     <!-- is that necessary? -->
     <!-- <div>
         <input type="submit" value="Apply criteria">
     </div> -->
-    
+    <!-- <div class="legend-big-column">             -->
+            <!-- <p class="legend-text">
+                | self-described \ man  / woman 
+            </p> -->
+            <!-- <p class="legend-text">
+                ✦
+                < 100$
+                ✶
+                100 - 200$
+                ✷
+                200 - 300$
+                ✺
+                ≥ 300$
+            </p> -->
+            <!-- <hr class="legend-line-break"> -->
+            
+            
+        <!-- </div> -->
     <div>
         <figure class="waffle"></figure>
     </div>
     <div class="counter">
         <p class="counter-text">
-            <span class="qnumber" id="new-revealed">0</span> new responses revealed, 
-            <span class="qnumber" id="total-flipped">0%</span> flipped in total
+            <span style="font-size: 16px; font-weight: 500;" id="new-revealed">0</span> new responses revealed, 
+            <span style="font-size: 16px; font-weight: 500;" id="total-flipped">0%</span> flipped in total
         </p>
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
