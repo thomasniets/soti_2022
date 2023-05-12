@@ -5,12 +5,12 @@
     font-weight: 700;
     margin: 25px 20% 0 20%;
 }
-.small-header{
+/* .small-header{
     text-align: justify;
     font-size: 18px;
     font-family: "Raleway", sans-serif;
     padding: 0 15% 0 15%;
-}
+} */
 .italic-note{
     text-align: center;
     font-style: italic;
@@ -20,9 +20,6 @@
 }
 .legend-big-column{
     margin: 0 5% 0 0;
-}
-.legend-line-break {
-    margin: 10px 0 0 0;
 }
 .legend{
     width: 1300px;
@@ -35,8 +32,8 @@
     margin: auto;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns:30px max-content;
-    padding: 10px 0 0 0;
+    grid-auto-columns:30px minmax(auto,240px);
+    padding: 6px 0 0 0;
 }
 .legend-inner-grid-big{
     margin: auto;
@@ -58,8 +55,8 @@
     font-size: 14px;
     font-weight: 300;
     font-family: "Raleway", sans-serif;
-    margin: auto;
-    word-wrap: normal;
+    margin: 0 auto 0 0;
+    word-wrap:normal;
 }
 .legend-square{
     width: 20px;
@@ -85,7 +82,7 @@
 .rect-clicked{
     word-wrap: break-word;
     text-align: center;
-    pointer-events: none;
+    /* pointer-events: none; */
   }
 .counter{
     position: sticky;
@@ -156,15 +153,42 @@ label{
     color: black;
     /* border-radius: 8%; */
 }
-.qnumber:before{
+/* .qnumber:before{
     content:"\00a0";
-    /* content:"("; */
 }
 .qnumber:after{
     content:"\00a0";
-    /* content:")"; */
+} */
+input[type=checkbox]{
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    /* accent-color: #75cbec;
+    outline: 1px solid #75cbec; */
+    
 }
-
+/* .checkbox-square {
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 0%;
+    vertical-align: middle;
+    border: 1px solid black;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+    margin: 0;
+}
+.checkbox-square:hover {
+    background-color: #cdcdcd;
+  }
+.checkbox-square:checked {
+    background-color: black;
+    border: 1px solid black;
+    box-shadow: none;
+} */
 /* input[type=submit] {
     width: 150px; 
     height: 20px;

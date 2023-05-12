@@ -1,119 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>SOTI 2022</title>
-<!-- Shout out to The Pudding https://pudding.cool/process/flexbox-layout/ -->
+    <!-- Shout out to The Pudding https://pudding.cool/process/flexbox-layout/ -->
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+        rel="stylesheet">
     <!-- offline version -->
     <!-- <link href="fonts.css" rel="stylesheet"> -->
 </head>
 
-    <body>
+<body>
     <header>
         <p class="big-header">State Of The Industry Survey Results 2022</p>
-        <p class="italic-note">Please, use desktop to view</p>  
-        <!-- <p class="small-header">
-        </p> -->
+        <p class="italic-note">Please, use desktop to view</p>
     </header>
-    
+
     <div class="legend">
         <div class="legend-big-column" style="border-right: 1px solid #a5a5a5">
-        <div class="legend-inner-grid-big">
+            <div class="legend-inner-grid-big">
                 <p class="legend-text">
-                    There are 1404* squares on the screen — each one represents a 
-                <a href="https://www.datavisualizationsociety.org/survey">Data Visualization Society SOTI</a> response.
+                    There are 1404* squares on the screen — each one represents a
+                    <a href="https://www.datavisualizationsociety.org/survey">Data Visualization Society SOTI</a>
+                    response.
                     Hover over a square to learn more about the respondent in the tooltip.
                 </p>
 
-                <div class="tooltip" style="visibility: visible; position:inherit; width: 160px; padding:1% 0 1% 0; margin: 5% 0 0 0">
-                    <p class="tooltip-example" style="font-weight: 400;">Respondent No: 0</p> 
-                    <p class="tooltip-example">Country: <span class="qnumber">Q08</span></p> 
-                    <p class="tooltip-example">Secret weapon: <i>"Other" from <span class="qnumber">Q36</span> about tools</i></p> 
-                    <p class="tooltip-example">Inspired by: <span class="qnumber">Q55</span></p> 
+                <div class="tooltip"
+                    style="visibility: visible; position:inherit; width: 160px; padding:1% 0 1% 0; margin: 5% 0 0 0">
+                    <p class="tooltip-example" style="font-weight: 400;">Respondent No: 0</p>
+                    <p class="tooltip-example">Country: <span class="qnumber">Q08</span></p>
+                    <p class="tooltip-example">Secret weapon: <i>"Other" from <span class="qnumber">Q36</span> about
+                            tools</i></p>
+                    <p class="tooltip-example">Inspired by: <span class="qnumber">Q55</span></p>
                 </div>
-        </div>
-                
-        <div class="legend-inner-grid-big">
-            <p class="legend-text">
-                The squares are sorted based on years of experience in data visualization <span class="qnumber">Q03</span>.
-                Click on any square to flip it along with the similar ones based on criteria of your choice.
-                Just tick the checkboxes you want to take into account.
-            </p>
-            <img src="sort.png" width="180px"/> 
-        </div>
+            </div>
+
+            <div class="legend-inner-grid-big">
+                <p class="legend-text">
+                    Squares are sorted based on years of experience in data visualization <span
+                        class="qnumber">Q03</span>.
+                    Click on any square to flip it along with the similar ones based on criteria of your choice.
+                    Just tick the checkboxes you want to take into account.
+                </p>
+                <img src="sort.png" width="180px" />
+            </div>
         </div>
 
         <div class="legend-big-column">
-                    <p class="legend-text">
-                        Square colour represents the <br>
-                        <input type="checkbox" name="variables" id="continent" checked>
-                        <label>continent:</label><br>   
-                    </p>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#5a735d;"></div> 
-                        <p class="legend-text-inner-grid">Americas (60%)</p>                
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#7983AF;"></div>
-                        <p class="legend-text-inner-grid">Europe (27.5%)</p> 
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#e5d4ba;"></div> 
-                        <p class="legend-text-inner-grid">Asia (6%)</p>
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#37324F;"></div>
-                        <p class="legend-text-inner-grid">Oceania (3%)</p>
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#CE3E3C;"></div>
-                        <p class="legend-text-inner-grid">Africa (2%)</p>
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="background-color:#e3c1c1;"></div>
-                        <p class="legend-text-inner-grid">Unknown (1.5%)</p>
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="width: 22px; height: 22px; background: #75cbec;  border-radius: 50%; opacity:0.3;">
-                        </div>
-                        <p class="legend-text-inner-grid">
-                            <!-- if they are -->
-                            <input type="checkbox" name="variables" id="looking_for_job" >
-                            <label >looking for a job <span class="qnumber">Q44</span></label>
-                        </p>
-                    </div>
-                    <div class="legend-inner-grid">
-                        <div class="legend-square" style="width: 18px; height: 18px; background-color:white; border:2px solid #75cbec;">
-                        </div>
-                        <p class="legend-text-inner-grid">
-                            <!-- if they are a -->
-                            <input type="checkbox" name="variables" id="dvs_member" checked>
-                            <label >DVS member <span class="qnumber">Q64</span></label>
-                        </p>
-                    </div>
+            <p class="legend-text">
+                Countries <span class="qnumber">Q08</span> were grouped and coloured by    
+                <input type="checkbox" class="checkbox-square" name="variables" id="continent" checked>
+                <label>continent </label>:
+            </p>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#5a735d;"></div>
+                <p class="legend-text-inner-grid">Americas (60%)</p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#7983AF;"></div>
+                <p class="legend-text-inner-grid">Europe (27.5%)</p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#e5d4ba;"></div>
+                <p class="legend-text-inner-grid">Asia (6%)</p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#37324F;"></div>
+                <p class="legend-text-inner-grid">Oceania (3%)</p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#CE3E3C;"></div>
+                <p class="legend-text-inner-grid">Africa (2%)</p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square" style="background-color:#e3c1c1;"></div>
+                <p class="legend-text-inner-grid">Unknown (1.5%)</p>
+            </div>
+            
+            <div class="legend-inner-grid" style="padding-top:20px;">
+                <div class="legend-square"
+                    style="width: 18px; height: 18px; background-color:white; border:2px solid #75cbec;">
+                </div>
+                <p class="legend-text-inner-grid">
+                    <label>DVS member <span class="qnumber">Q64</span></label>
+                    <input type="checkbox" class="checkbox-square" name="variables" id="dvs_member" checked>
+                </p>
+            </div>
+            <div class="legend-inner-grid">
+                <div class="legend-square"
+                    style="width: 22px; height: 22px; background: #75cbec;  border-radius: 50%; opacity:0.3;">
+                </div>
+                <p class="legend-text-inner-grid">
+                    <label>looking for new employment opportunities <span class="qnumber">Q44</span></label>
+                    <input type="checkbox" class="checkbox-square" name="variables" id="looking_for_job">
+                </p>
+            </div>
         </div>
         <div class="legend-big-column">
             <p class="legend-text">
-                Out of those working on site, the majority (44%) would prefer to switch to hybrid <span class="qnumber">Q11, Q12</span>.
+                Fun fact: out of those working on site, the majority (44%) would prefer to switch to hybrid <span
+                    class="qnumber">Q11, Q12</span>.
                 The rest are happy with their
-                <input type="checkbox" name="variables" id="remote_or_what" >
+                <input type="checkbox" class="checkbox-square" name="variables" id="remote_or_what">
                 <label>work situation right now</label>:
             </p>
-            <p class="legend-text" style="font-size: 14px;">◯ Remote ◐ Hybrid ◉ On site</p>
-        
-        
+            <p class="legend-text">◯ Remote ◐ Hybrid ◉ On site</p>
+
             <p class="legend-text">
-                <input type="checkbox" name="variables" id="pay_hourly" >
-                <label >Hourly pay</label>
+                <input type="checkbox" class="checkbox-square" name="variables" id="pay_hourly">
+                <label>Hourly pay</label>
                 for project work <span class="qnumber">Q07</span>:
             </p>
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">✦</p>
-                <p class="legend-text-inner-grid">< 100$</p>
+                <p class="legend-text-inner-grid">
+                    < 100$</p>
             </div>
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">✶</p>
@@ -127,22 +132,25 @@
                 <p class="legend-text-inner-grid">✺</p>
                 <p class="legend-text-inner-grid">≥ 300$</p>
             </div>
-        </div>    
-    <div class="legend-big-column">
             <p class="legend-text">
-                <input type="checkbox" name="variables" id="edu_level" >
-                <label> Education level <span class="qnumber">Q58</span>, </label>
-                <input type="checkbox" name="variables" id="student" >
-                <label>student status <span class="qnumber">Q01</span></label>:
+                However, the flipping will take into account a range provided in the survey, which is more precise.
+                Beware as only 21% of repondents provided a $ answer.
             </p>
             
+        </div>
+        <div class="legend-big-column">
+                <p class="legend-text">
+                <input type="checkbox" class="checkbox-square" name="variables" id="edu_level">
+                <label> Education level <span class="qnumber">Q58</span>:</label>
+            </p>
+
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">࠾</p>
-                <p class="legend-text-inner-grid">High school diploma, Technical school</p>
+                <p class="legend-text-inner-grid">High school diploma, technical school</p>
             </div>
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">࠾࠾</p>
-                <p class="legend-text-inner-grid">Bachelor’s degree, Associate’s degree, Some college</p>
+                <p class="legend-text-inner-grid">Bachelor’s or associate’s degree, some college</p>
             </div>
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">࠾࠾࠾</p>
@@ -152,22 +160,24 @@
                 <p class="legend-text-inner-grid">࠾࠾࠾࠾</p>
                 <p class="legend-text-inner-grid">Doctoral degree</p>
             </div>
-            <div class="legend-inner-grid">
+            <div class="legend-inner-grid" style="padding-top:12px;">
                 <p class="legend-text-inner-grid">➝</p>
-                <p class="legend-text-inner-grid">if they are currently a student</p>
+                <p class="legend-text-inner-grid">
+                    <label>currently a student <span class="qnumber">Q01</span></label>
+                    <input type="checkbox" class="checkbox-square" name="variables" id="student">
+                </p>
             </div>
             <div class="legend-inner-grid">
                 <p class="legend-text-inner-grid">
                     ª
                 </p>
                 <p class="legend-text-inner-grid">
-                    if they
-                    <input type="checkbox" name="variables" id="lang_two_or_more" >
-                    <label >speak 2 or more languages <span class="qnumber">Q57</span></label><br>
+                    <label>speak 2 or more languages <span class="qnumber">Q57</span></label>
+                    <input type="checkbox" class="checkbox-square" name="variables" id="lang_two_or_more">
                 </p>
             </div>
             <p class="legend-text">
-                <input type="checkbox" name="variables" id="gender" >
+                <input type="checkbox" class="checkbox-square" name="variables" id="gender">
                 <label>Gender <span class="qnumber">Q59</span></label>:
             </p>
             <div class="legend-inner-grid">
@@ -183,35 +193,19 @@
                 <p class="legend-text-inner-grid"> self-described</p>
             </div>
         </div>
+        
     </div>
     <!-- is that necessary? -->
     <!-- <div>
         <input type="submit" value="Apply criteria">
     </div> -->
-    <!-- <div class="legend-big-column">             -->
-            <!-- <p class="legend-text">
-                | self-described \ man  / woman 
-            </p> -->
-            <!-- <p class="legend-text">
-                ✦
-                < 100$
-                ✶
-                100 - 200$
-                ✷
-                200 - 300$
-                ✺
-                ≥ 300$
-            </p> -->
-            <!-- <hr class="legend-line-break"> -->
-            
-            
-        <!-- </div> -->
+    
     <div>
         <figure class="waffle"></figure>
     </div>
     <div class="counter">
         <p class="counter-text">
-            <span style="font-size: 16px; font-weight: 500;" id="new-revealed">0</span> new responses revealed, 
+            <span style="font-size: 16px; font-weight: 500;" id="new-revealed">0</span> new responses revealed,
             <span style="font-size: 16px; font-weight: 500;" id="total-flipped">0%</span> flipped in total
         </p>
     </div>
@@ -220,36 +214,45 @@
     <!-- <script src="d3.v7.min.js"></script> -->
 
     <script src="script.js" charset="utf-8"></script>
-    
-    
 
-    </body>
-    <footer style="border-top: 1px solid #a5a5a5; padding-top: 12px;">
-        <p class="footer-text">
-            <a href="https://docs.google.com/spreadsheets/d/1WIcrNMswG6aGBlhoYqWhav9sUGefYA7BBEIL20hleWE/edit#gid=1466763888">Data source</a>
-        </p>
-        <p class="footer-text">
-            *The number of responses was reduced by filtering out respondents who did not finish answering the question about their country <span class="qnumber">Q08</span>.
-            Countries were <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">grouped</a> by continent.<br>
-    
-                <br><span class="qnumber">Q01</span> Which of the following describes your role as a data visualizer in the past year? (Student in a degree program at a college or university)
-                <br><span class="qnumber">Q03</span> About how many years of experience do you have doing data visualization?
-                <br><span class="qnumber">Q04</span> About how many years of professional experience do you have (in any field)?
-                <br><span class="qnumber">Q06</span> If you get paid a salary, what is your pre-tax yearly pay (in US dollars)?
-                <br><span class="qnumber">Q07</span> If you are paid by hour or by project, what is your hourly rate for data visualization (in US dollars)?
-                <br><span class="qnumber">Q08</span> What country do you live in?
-                <br><span class="qnumber">Q11</span> Which best describes your work situation as a data visualizer during the past 6 months?
-                <br><span class="qnumber">Q12</span> If given a choice, which work situation would you prefer for the next 6 to 12 months?
-                <br><span class="qnumber">Q36</span> What technologies do you use to visualize data? (Other)
-                <br><span class="qnumber">Q44</span> Are you currently looking for new employment opportunities?
-                <br><span class="qnumber">Q55</span> Who do you find helpful for inspiration in data visualization? Feel free to list multiple names.
-                <br><span class="qnumber">Q57</span> What language(s) do you speak regularly?
-                <br><span class="qnumber">Q58</span> What is the highest level of education you have completed?
-                <br><span class="qnumber">Q59</span> What is your gender?
-                <br><span class="qnumber">Q64</span> Are you a Data Visualization Society member?<br>
-            
-                <br>Made by Vasiukova Viktoriia.
-        </p>
-    </footer>
 
-    </html>
+
+</body>
+<footer style="border-top: 1px solid #a5a5a5; padding-top: 12px;">
+    <p class="footer-text">
+        <a
+            href="https://docs.google.com/spreadsheets/d/1WIcrNMswG6aGBlhoYqWhav9sUGefYA7BBEIL20hleWE/edit#gid=1466763888">Data
+            source</a>
+    </p>
+    <p class="footer-text">
+        *The number of responses was reduced by filtering out respondents who did not finish answering the question
+        about their country <span class="qnumber">Q08</span>.
+        Countries were <a href="https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes">grouped</a> by
+        continent.<br>
+
+        <br><span class="qnumber">Q01</span> Which of the following describes your role as a data visualizer in the past
+        year? (Student in a degree program at a college or university)
+        <br><span class="qnumber">Q03</span> About how many years of experience do you have doing data visualization?
+        <br><span class="qnumber">Q04</span> About how many years of professional experience do you have (in any field)?
+        <br><span class="qnumber">Q06</span> If you get paid a salary, what is your pre-tax yearly pay (in US dollars)?
+        <br><span class="qnumber">Q07</span> If you are paid by hour or by project, what is your hourly rate for data
+        visualization (in US dollars)?
+        <br><span class="qnumber">Q08</span> What country do you live in?
+        <br><span class="qnumber">Q11</span> Which best describes your work situation as a data visualizer during the
+        past 6 months?
+        <br><span class="qnumber">Q12</span> If given a choice, which work situation would you prefer for the next 6 to
+        12 months?
+        <br><span class="qnumber">Q36</span> What technologies do you use to visualize data? (Other)
+        <br><span class="qnumber">Q44</span> Are you currently looking for new employment opportunities?
+        <br><span class="qnumber">Q55</span> Who do you find helpful for inspiration in data visualization? Feel free to
+        list multiple names.
+        <br><span class="qnumber">Q57</span> What language(s) do you speak regularly?
+        <br><span class="qnumber">Q58</span> What is the highest level of education you have completed?
+        <br><span class="qnumber">Q59</span> What is your gender?
+        <br><span class="qnumber">Q64</span> Are you a Data Visualization Society member?<br>
+
+        <br>Made by Vasiukova Viktoriia.
+    </p>
+</footer>
+
+</html>
